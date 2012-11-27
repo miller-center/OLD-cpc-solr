@@ -1,6 +1,6 @@
 require 'capistrano_colors'
 
-set :repository,  "git@github.com:coshx/imls-solr.git"
+set :repository,  "git@github.com:miller-center/imls-solr.git"
 set :branch, fetch(:branch, "master")
 set :deploy_to, "/opt/solr"
 set :use_sudo, false
@@ -13,7 +13,7 @@ default_run_options[:shell] = "/bin/bash -l"
 
 ssh_options[:forward_agent] = true
 
-set :deploy_via, :remote_cache
+#set :deploy_via, :remote_cache
 
 set :domain, "128.143.8.227"
 
@@ -22,17 +22,17 @@ role :app, domain
 namespace :deploy do
   desc "Restart IMLS Solr"
   task :restart do
-    run "#{try_sudo} /etc/init.d/imls_solr restart"
+    run "#{try_sudo} /etc/init.d/solr restart"
   end
   
   desc "Start IMLS Solr"
   task :start do
-    run "#{try_sudo} /etc/init.d/imls_solr start"
+    run "#{try_sudo} /etc/init.d/solr start"
   end
   
   desc "Stop IMLS Solr"
   task :stop do
-    run "#{try_sudo} /etc/init.d/imls_solr stop"
+    run "#{try_sudo} /etc/init.d/solr stop"
   end
 
   desc "Override finalize_update as it's just tooo railsy..."
