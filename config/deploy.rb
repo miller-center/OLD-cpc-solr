@@ -19,6 +19,8 @@ set :domain, "128.143.8.227"
 
 role :app, domain
 
+after 'deploy:symlink', 'deploy:data_symlink'
+
 namespace :deploy do
   desc "Restart IMLS Solr"
   task :restart do
@@ -37,4 +39,9 @@ namespace :deploy do
 
   desc "Override finalize_update as it's just tooo railsy..."
   task :finalize_update do ; end
+
+  desc "Create a symlink for the shared data directory"
+  task :data_symlink do
+    run "ln -nfs #{shared_path}/system/data #{release_path}/solr/data"
+  end
 end
