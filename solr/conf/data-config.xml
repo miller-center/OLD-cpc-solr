@@ -12,10 +12,10 @@
               stream="false"
               logTemplate="      processing ${files.fileAbsolutePath}"
               logLevel="info"
-              forEach="/Repository/ListRecords/record">
-        <!-- this is fake right now, but necessary for blacklight
-             need to get the 'oai:identifer field in here, I think -->
-        <field column="id"              xpath="/Repository/ListRecords/record/metadata/dc/id" />
+              forEach="/Repository/ListRecords/record"
+              transformer="RegexTransformer">
+        <field column="id"              xpath="/Repository/ListRecords/record/metadata/dc/id" 
+               regex="\." replaceWith="_"/>
 
         <!-- dublin core -->
         <field column="title"           xpath="/Repository/ListRecords/record/metadata/dc/title" />
@@ -26,8 +26,6 @@
         <field column="date"            xpath="/Repository/ListRecords/record/metadata/dc/date" />
         <field column="type"            xpath="/Repository/ListRecords/record/metadata/dc/type" />
         <field column="format"          xpath="/Repository/ListRecords/record/metadata/dc/format" />
-        <!-- identifier is a URL, and could be used to link to the resource
-             no way to verify the link though, so not really reliable -->
         <field column="identifier"      xpath="/Repository/ListRecords/record/metadata/dc/identifier" />
         <field column="source"          xpath="/Repository/ListRecords/record/metadata/dc/source" />
         <field column="language"        xpath="/Repository/ListRecords/record/metadata/dc/language" />
