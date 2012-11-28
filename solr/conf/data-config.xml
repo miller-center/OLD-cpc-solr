@@ -8,9 +8,9 @@
       <entity name="record" rootEntity="true"
               dataSource="fileReader"
               processor="XPathEntityProcessor"
-              url="${file.fileAbsolutePath}"
+              url="${files.fileAbsolutePath}"
               stream="false"
-              logTemplate="      processing ${file.fileAbsolutePath}"
+              logTemplate="      processing ${files.fileAbsolutePath}"
               logLevel="info"
               forEach="/Repository/ListRecords/record">
         <!-- this is fake right now, but necessary for blacklight
