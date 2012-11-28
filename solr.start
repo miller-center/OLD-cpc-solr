@@ -1,0 +1,28 @@
+#!/bin/bash
+#-----------------------------------------------------
+# solr-initd v0.5.1
+#-----------------------------------------------------
+# Starts solr and writes a pid file.  Meant
+# to be used with the initd script but this
+# can be used on it's own
+#
+# Requires /etc/solr.conf
+# Usage: ./solr.start
+#
+#-----------------------------------------------------
+# Author: Jeff Busby <jeff@jeffbusby.ca>
+# License: http://creativecommons.org/licenses/by/3.0/
+#-----------------------------------------------------
+if [ ! -f /etc/solr.conf ]; then
+    die "Missing config file /etc/solr.conf"
+fi
+. /etc/solr.conf
+
+if [ ! -d $SOLR_HOME ]; then
+    die "Can't find $SOLR_HOME"
+fi
+cd $SOLR_HOME
+COMMAND="java $OPTIONS -jar start.jar"
+nohup $COMMAND > $LOG_FILE 2>&1 &
+echo $! > $PIDFILE
+exit $?
