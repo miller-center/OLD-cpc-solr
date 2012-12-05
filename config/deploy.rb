@@ -3,7 +3,7 @@ require 'capistrano_colors'
 set :repository,  "git@github.com:miller-center/imls-solr.git"
 set :branch, fetch(:branch, "master")
 set :deploy_to, "/opt/solr"
-set :use_sudo, true
+set :use_sudo, false
 set :keep_releases, 3
 set :scm, :git
 set :user, :solr
@@ -25,17 +25,17 @@ after 'deploy:update', 'deploy:cleanup'
 namespace :deploy do
   desc "Restart IMLS Solr"
   task :restart do
-    run "#{try_sudo} /etc/init.d/solr restart"
+    run "sudo /etc/init.d/solr restart"
   end
   
   desc "Start IMLS Solr"
   task :start do
-    run "#{try_sudo} /etc/init.d/solr start"
+    run "sudo /etc/init.d/solr start"
   end
   
   desc "Stop IMLS Solr"
   task :stop do
-    run "#{try_sudo} /etc/init.d/solr stop"
+    run "sudo /etc/init.d/solr stop"
   end
 
   desc "Override finalize_update as it's just tooo railsy..."
