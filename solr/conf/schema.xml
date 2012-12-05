@@ -563,7 +563,7 @@
    <field name="isPartOf"    type="text"     indexed="true"  stored="true"  multiValued="true" />
    <field name="date"        type="text"     indexed="true"  stored="true"  multiValued="false" />
    <field name="type"        type="text"     indexed="true"  stored="true"  multiValued="false" />
-   <field name="format"      type="text"     indexed="true"  stored="true"  multiValued="true" />
+   <field name="formats"      type="text"     indexed="true"  stored="true"  multiValued="true" />
    <field name="medium"      type="text"     indexed="true"  stored="true"  multiValued="true" />
    <field name="identifier"  type="string"   indexed="false" stored="true"   multiValued="false" />
    <field name="source"      type="text"     indexed="true"  stored="true"  multiValued="false" />
@@ -651,7 +651,7 @@
    <!-- Copy Fields -->
         
    <!-- facet fields -->
-   <copyField source="format" dest="format_facet"/>
+   <copyField source="formats" dest="format_facet"/>
    <copyField source="type" dest="type_facet"/>
    <copyField source="date" dest="date_facet"/>
 
