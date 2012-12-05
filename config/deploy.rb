@@ -3,7 +3,7 @@ require 'capistrano_colors'
 set :repository,  "git@github.com:miller-center/imls-solr.git"
 set :branch, fetch(:branch, "master")
 set :deploy_to, "/opt/solr"
-set :use_sudo, false
+set :use_sudo, true
 set :keep_releases, 3
 set :scm, :git
 set :user, :solr
