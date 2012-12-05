@@ -850,6 +850,7 @@
         author_display,
         author_vern_display, 
         format_facet, 
+        publisher_facet, 
         isbn_t, 
         language_facet, 
         lc_callnum_display,
@@ -871,6 +872,7 @@
       <str name="facet.mincount">1</str>
       <str name="facet.limit">10</str>
       <str name="facet.field">format_facet</str>
+      <str name="facet.field">publisher_facet</str>
       <str name="facet.field">lc_1letter_facet</str>
       <str name="facet.field">lc_alpha_facet</str>
       <str name="facet.field">lc_b4cutter_facet</str>

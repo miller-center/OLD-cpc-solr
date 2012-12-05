@@ -237,6 +237,10 @@
       </analyzer>
     </fieldType>
 
+    <fieldType name="publisher_facet" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+    </fieldType>
+
+
     <!-- One can also specify an existing Analyzer class that has a
          default constructor via the class attribute on the analyzer element
     <fieldType name="text_greek" class="solr.TextField">
@@ -580,6 +584,7 @@
    <field name="date_sort" type="numericOnlySort" indexed="true" stored="false" multiValued="false"/>
    <field name="type_facet" type="type_facet" indexed="true" stored="false" multiValued="true"/>
    <field name="date_facet" type="date_facet" indexed="true" stored="false" multiValued="true"/>
+   <field name="publisher_facet" type="publisher_facet" indexed="true" stored="false" multiValued="false"/>
 
    <!-- default, catch all search field -->
    <field name="text" type="text" indexed="true" stored="false" multiValued="true"/>
@@ -654,6 +659,7 @@
    <copyField source="formats" dest="format_facet"/>
    <copyField source="type" dest="type_facet"/>
    <copyField source="date" dest="date_facet"/>
+   <copyField source="publisher" dest="publisher_facet"/>
 
    <!-- unstemmed fields -->
    <copyField source="title" dest="title_unstem_search"/>
