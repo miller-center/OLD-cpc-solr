@@ -3,7 +3,7 @@ require 'capistrano_colors'
 set :repository,  "git@github.com:miller-center/imls-solr.git"
 set :branch, fetch(:branch, "master")
 set :deploy_to, "/opt/solr"
-set :use_sudo, true
+set :use_sudo, false
 set :keep_releases, 3
 set :scm, :git
 set :user, :solr
@@ -20,6 +20,7 @@ set :domain, "128.143.8.227"
 role :app, domain
 
 after 'deploy:symlink', 'deploy:data_symlink'
+after 'deploy:update', 'deploy:cleanup'
 
 namespace :deploy do
   desc "Restart IMLS Solr"
