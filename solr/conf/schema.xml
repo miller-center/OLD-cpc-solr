@@ -554,19 +554,23 @@
    -->
 
    <field name="title"       type="text_en"  indexed="true"  stored="true"   multiValued="false" />
+   <field name="contributor" type="text_en"  indexed="true"  stored="true"   multiValued="true" />
+   <field name="provenance"  type="text_en"  indexed="true"  stored="true"   multiValued="false" />
    <field name="creator"     type="text_en"  indexed="true"  stored="true"   multiValued="false" />
    <field name="subject"     type="text_en"  indexed="true"  stored="true"   multiValued="true" />
    <field name="description" type="text_en"  indexed="true"  stored="true"   multiValued="true" />
-   <field name="publisher"   type="text"     indexed="true"  stored="false"  multiValued="false" />
+   <field name="publisher"   type="text"     indexed="true"  stored="true"  multiValued="false" />
+   <field name="isPartOf"    type="text"     indexed="true"  stored="true"  multiValued="true" />
    <field name="date"        type="text"     indexed="true"  stored="true"  multiValued="false" />
-   <field name="type"        type="text"     indexed="true"  stored="false"  multiValued="false" />
-   <field name="format"      type="text"     indexed="true"  stored="false"  multiValued="false" />
+   <field name="type"        type="text"     indexed="true"  stored="true"  multiValued="false" />
+   <field name="format"      type="text"     indexed="true"  stored="true"  multiValued="true" />
+   <field name="medium"      type="text"     indexed="true"  stored="true"  multiValued="true" />
    <field name="identifier"  type="string"   indexed="false" stored="true"   multiValued="false" />
-   <field name="source"      type="text"     indexed="true"  stored="false"  multiValued="false" />
-   <field name="language"    type="text"     indexed="true"  stored="false"  multiValued="false" />
-   <field name="relation"    type="text"     indexed="true"  stored="false"  multiValued="false" />
-   <field name="coverage"    type="text"     indexed="true"  stored="false"  multiValued="false" />
-   <field name="rights"      type="text"     indexed="true"  stored="false"  multiValued="false" />
+   <field name="source"      type="text"     indexed="true"  stored="true"  multiValued="false" />
+   <field name="language"    type="text"     indexed="true"  stored="true"  multiValued="false" />
+   <field name="relation"    type="text"     indexed="true"  stored="true"  multiValued="false" />
+   <field name="coverage"    type="text"     indexed="true"  stored="true"  multiValued="false" />
+   <field name="rights"      type="text"     indexed="true"  stored="true"  multiValued="false" />
 
    <!-- NOTE: this is not a full list of fields in the index; dynamic fields are also used -->
    <field name="id" type="string" indexed="true" stored="true" required="true"/>
