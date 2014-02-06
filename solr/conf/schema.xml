@@ -660,6 +660,7 @@
    <copyField source="type" dest="type_facet"/>
    <copyField source="date" dest="date_facet"/>
    <copyField source="publisher" dest="publisher_facet"/>
+   <copyField source="language" dest="language_facet"/>
 
    <!-- unstemmed fields -->
    <copyField source="title" dest="title_unstem_search"/>
